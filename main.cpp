@@ -85,34 +85,7 @@ while(true){
             break;
 
             case 2:
-                cout<<"INGRESE NOMBRE DEL JUGADOR 1: "<<endl;
-                cin.getline(jugador1,25);
-                cin.ignore();
-
-                tirarDados(vecDados, tam);
-                mostrarDados(vecDados, tam);
-
-
-                system("pause");
-
-                cout<<"INGRESE NOMBRE DEL JUGADOR 2: "<<endl;
-                cin.getline(jugador2,25);
-                cin.ignore();
-
-                tirarDados(vecDados, tam);
-                mostrarDados(vecDados, tam);
-
-                system("pause");
-
-                ///juego2jugadores(jugador1,jugador2);
-
-                cout<<"Turno de "<<jugador1<<endl;
-                cout<<"Ronda n° "<<ronda<<endl;
-                cout<<"Puntaje total "<<puntajeTotal2<<endl;
-                cout<<"Lanzamiento n° "<<lanzamiento1<<endl;
-                lanzamiento1++;
-                ronda++;
-
+                 juego2jugadores();
 
 
                 break;
@@ -135,3 +108,7 @@ while(true){
 }
 
 
+/**cout<< "Presiona 'Enter' para continuar ... "<<endl;
+                cout<<endl;
+                while ( getchar() != '\n');
+                system("pause");**/
