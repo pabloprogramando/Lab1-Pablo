@@ -11,7 +11,6 @@
 using namespace std;
 
 
-
 int main(){
 
 int  vecDados[6], opcion, ronda=1, puntajeTotal1=0, puntajeTotal2=0, puntajeMaximo=0;
@@ -22,6 +21,7 @@ const int tam=5;
 cout<<"                           BIENVENIDO AL JUEGO DE LA GENERALA "<<endl;
 
 while(true){
+
     system("cls");
     cout<<"MENÚ DEL JUEGO"<<endl;
     cout<<"1- JUEGA UN JUGADOR "<<endl;
@@ -31,7 +31,9 @@ while(true){
     cout<<"ELIJA UNA OPCIÓN "<<endl;
     cin>>opcion;
     cin.ignore();
-    system("cls");
+
+
+    rlutil::cls();
 
     switch(opcion){
 
@@ -49,6 +51,13 @@ while(true){
         case 4:
             return 0;
             break;
+        default:
+            rlutil::cls();
+            cout<<"Opción es incorrecta. Por favor ingrese enter y vuelva a ingresar una opción"<<endl;
+            rlutil::anykey();
+            rlutil::cls();
+            break;
+
         }
     }
 }
