@@ -13,10 +13,7 @@ using namespace std;
 
 int main(){
 
-int  vecDados[6], opcion, ronda=1, puntajeTotal1=0, puntajeTotal2=0, puntajeMaximo=0;
-int puntajeRonda=0, lanzamiento1=1, lanzamiento2=1;
-char ganador[25], jugador1[25], jugador2[25], continuarLanzando;
-const int tam=5;
+int  opcion, puntajeMaximo;
 
 cout<<"                           BIENVENIDO AL JUEGO DE LA GENERALA "<<endl;
 
@@ -53,7 +50,7 @@ while(true){
             break;
         default:
             rlutil::cls();
-            cout<<"Opción es incorrecta. Por favor ingrese enter y vuelva a ingresar una opción"<<endl;
+            cout<<"Opción es incorrecta. Por favor ingrese enter y vuelva a ingresar una opción..."<<endl;
             rlutil::anykey();
             rlutil::cls();
             break;
@@ -63,7 +60,8 @@ while(true){
 }
 
 
-/**cout<< "Presiona 'Enter' para continuar ... "<<endl;
-                cout<<endl;
-                while ( getchar() != '\n');
-                system("pause");**/
+/** vecDados[6], opcion, ronda=1, puntajeTotal1=0, puntajeTotal2=0, puntajeMaximo=0;
+int puntajeRonda=0, lanzamiento=1, lanzamiento=1;
+char ganador[25], jugador1[25], jugador2[25], continuarLanzando;
+const int tam=5; **/
+
