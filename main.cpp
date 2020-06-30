@@ -6,6 +6,7 @@
 #include<ctype.h>
 #include<cstring>
 #include"FUNCIONES_GENERALA.H"
+#include "rlutil.h"
 #include <iostream>
 using namespace std;
 
@@ -34,77 +35,22 @@ while(true){
 
     switch(opcion){
 
-        case 1: //aca podria ir la funcion juego de 1
-
-            cout<<"INGRESE NOMBRE DEL JUGADOR: "<<endl;
-            cin.getline(jugador1,25);
-            cin.ignore();
-
-            system("pause");
-
-            cout<<"Turno de "<<jugador1<<endl;
-            cout<<"Ronda n° "<<ronda<<endl;
-            cout<<"Puntaje total "<<puntajeTotal1<<endl;
-            cout<<"Lanzamiento n° "<<lanzamiento1<<endl;
-            lanzamiento1++;
-            ronda++;
-            puntajeTotal1+=puntajeRonda;
-
-
-
-            tirarDados(vecDados, tam);
-            mostrarDados(vecDados, tam);
-
-
-            cout<<"Continuar lanzando?"<<endl;
-            cin>>continuarLanzando;
-
-            switch (continuarLanzando){
-
-            case 'S':
-            case 's':
+        case 1:
+            juego1jugador();
             break;
 
-
-                case 'n':
-                case 'N':
-                cout<< "Fin del turno, presione enter para continuar..."<<endl;
-                ronda++;
-                sumarPuntos(vecDados,tam);
-                system("pause");
-                cout<<endl;
-                cout<< "Presiona 'Enter' para continuar ... "<<endl;
-                cout<<endl;
-                while ( getchar() != '\n');
-
-
-                break;
-
-
-            }
+        case 2:
+            juego2jugadores();
             break;
 
-            case 2:
-                 juego2jugadores();
-
-
-                break;
-
-            case 3:
-                cout<<"Puntuación más alta: "<<puntajeMaximo<<endl;
-
-                break;
-
-
-
-            case 4:
-                return 0;
-                break;
-
-
+        case 3:
+            cout<<"Puntuación más alta: "<<puntajeMaximo<<endl;
+            break;
+        case 4:
+            return 0;
+            break;
         }
     }
-
 }
 
 
