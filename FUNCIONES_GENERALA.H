@@ -7,12 +7,23 @@ using namespace std;
 #define FUNCIONES_GENERALA_H_INCLUDED
 
 
+void cargarDados (int vecDados[]); ///carga el numero de dado que queremos asignarle al vecDados de forma manual
 void tirarDados(int vecDados[], int tam);
 void mostrarDados(int vecDados[], int tam);
 void resetDados(int vecDados[], int tam);
 int sumarPuntos(int vecDados[], int tam);
 void juego1jugador();
 void juego2jugadores();
+
+
+void cargarDados (int vecDados[]){
+    int i;
+    for(i=0;i<5;i++){
+        cout<<"INGRESE NUMERO DE DADO "<<i+1<<": ";
+        cin>>vecDados[i];
+        cout<<endl;
+    }
+}
 
 
 void juego1jugador(){
@@ -30,8 +41,8 @@ void juego1jugador(){
         cout<<endl;
         while ( getchar() != '\n');
 
-    while (ronda!=11){
-        while (lanzamiento!=3){
+    while (ronda<=10){
+        while (lanzamiento<3){
             cout<<"Turno de "<<jugador<<endl;
             cout<<"Ronda n° "<<ronda<<endl;
             cout<<"Puntaje de "<<jugador<<": "<<puntajeTotal<<endl;
@@ -46,7 +57,7 @@ void juego1jugador(){
             mostrarDados(vecDados, tam);
             cout<<endl;
             cout<<endl;
-            while (lanzamiento!=3){
+            while (lanzamiento<3){
             cout<<"¿Continuar lanzando?: "<<endl;
             cin>>continuarLanzando;
             switch (continuarLanzando){
@@ -153,8 +164,8 @@ void juego2jugadores(){
     cout<<endl;
     while ( getchar() != '\n');
 
-while (ronda!=11){
-    while (lanzamiento!=3){
+while (ronda<=10){
+    while (lanzamiento<3){
         cout<<"Turno de "<<jugador1<<endl;
         cout<<"Ronda n° "<<ronda<<endl;
         cout<<"Puntaje de "<<jugador1<<": "<<puntajeTotal1<<endl;
@@ -171,7 +182,7 @@ while (ronda!=11){
         cout<<endl;
         cout<<endl;
 
-        while (lanzamiento!=3){
+        while (lanzamiento<3){
             cout<<"¿Continuar lanzando?: "<<endl;
             cin>>continuarLanzando;
             switch (continuarLanzando){
@@ -254,7 +265,7 @@ while (ronda!=11){
         sumarPuntos(vecDados,tam);
         cout<<endl;
 
-        while (lanzamiento!=3){
+        while (lanzamiento<3){
         cout<<"Turno de "<<jugador2<<endl;
         cout<<"Ronda n° "<<ronda<<endl;
         cout<<"Puntaje de "<<jugador2<<": "<<puntajeTotal2<<endl;
@@ -269,7 +280,7 @@ while (ronda!=11){
         mostrarDados(vecDados, tam);
         cout<<endl;
         cout<<endl;
-        while (lanzamiento!=3){
+        while (lanzamiento<3){
             cout<<"¿Continuar lanzando?: "<<endl;
             cin>>continuarLanzando;
             switch (continuarLanzando){
