@@ -58,7 +58,8 @@ cin>>r;
 switch ( r){
 case  'S':
 case  's':cout<<" SI "<<endl;
-tirardados(vectordedados);
+//tirardados(vectordedados);
+cargarDados (vectordedados);
 mostrardados(vectordedados);
 ponercerouncontador(contadorderepeticiones);
 cargarcontador(contadorderepeticiones,vectordedados);

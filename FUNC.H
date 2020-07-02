@@ -100,8 +100,8 @@ for (i=0;i<6;i++){
 
 int funciondepuntaje(int contador[6]){
 
-int i, puntos=0, acu=0, contadordeescalera=0, Max=0;
-bool b2,b3=false;
+int i, puntos=0, puntos2=0, acu=0, contadordeescalera=0, Max=0;
+bool b2=false,b3=false;
 
 for(i=0;i<6;i++){
     if (contador[i]==5){
@@ -111,33 +111,31 @@ for(i=0;i<6;i++){
         if(contador[i]==4){
         puntos=40;
         }
-    else{
-        if(contador[i]==3){
-            b3=true;
-            puntos=(i+1)*3;
-        }
         else{
-            if(contador[i]==2){
-                    b2=true;
-                    puntos=(i+1)*2;
+            if(contador[i]==3){
+                b3=true;
+                puntos=(i+1)*3;
             }
             else{
-                if(contador[i]==1){
-                    contadordeescalera++;
-                    //puntos=i+1;
+                if(contador[i]==2){
+                    b2=true;
+                    puntos=(i+1)*2;
                 }
                 else{
-                   if(contadordeescalera!=5 && contadordeescalera!=0) {
-                        contadordeescalera--;
-                   }
+                    if(contador[i]==1){
+                    contadordeescalera++;
+                    puntos2=i+1;
+                    }
+                    else{
+                        if(contadordeescalera!=5 && contadordeescalera!=0) {
+                            contadordeescalera--;
+                        }
 
+                    }
                 }
             }
         }
     }
-}
-
-
 }
 if (b2==true && b3==true){
         puntos=30;
@@ -148,22 +146,16 @@ if(contadordeescalera==5){
         puntos=25;
 }
 
-if (puntos==0) {
-    for (i=0;i<5;i++) {
-            if (v[i]>Max){
-                Max=v[i];
-            }
+if (puntos<=4) {
+    puntos=puntos2;
     }
-    puntos=Max;
 
-}
 
 
 acu+=puntos;
 
 return acu;
 }
-
 
 
 
@@ -196,4 +188,8 @@ if (puntos==0){
                 }
     }
 }
+for (i=0;i<5;i++) {
+            if (v[i]>Max){
+                Max=v[i];
+            }
 **/
