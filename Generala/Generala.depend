@@ -1,0 +1,53 @@
+# depslib dependency file v1.0
+1593190670 source:/home/pablo/Escritorio/Laboratorio de computacion 1/TP FINAL INTEGRADOR/Generala/main.cpp
+	<iostream>
+	<clocale>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+	<ctype.h>
+	<cstring>
+	"FUNCIONES_GENERALA.H"
+
+1593155673 source:/home/pablo/Escritorio/Laboratorio de computacion 1/TP FINAL INTEGRADOR/Generala/FUNCIONES_GENERALA.CPP
+	<iostream>
+	"FUNCIONES_GENERALA.H"
+
+1593155740 /home/pablo/Escritorio/Laboratorio de computacion 1/TP FINAL INTEGRADOR/Generala/FUNCIONES_GENERALA.H
+
+1593293673 source:/home/pablo/Escritorio/Laboratorio de computacion 1/Generala/FUNCIONES_GENERALA.CPP
+	<iostream>
+
+1593805999 source:/home/pablo/Escritorio/Laboratorio de computacion 1/Generala/main.cpp
+	<iostream>
+	<cstdio>
+	<cstdlib>
+	<cstring>
+	"rlutil.h"
+	"FUNCIONES_GENERALA.H"
+
+1593808722 /home/pablo/Escritorio/Laboratorio de computacion 1/Generala/FUNCIONES_GENERALA.H
+	<iostream>
+	<cstdio>
+	<cstdlib>
+	<cstring>
+	<ctime>
+	"rlutil.h"
+
+1593375446 source:/home/pablo/Escritorio/Laboratorio de computacion 1/PRUEBAS/pruebas.cpp
+	<iostream>
+
+1593536482 /home/pablo/Escritorio/Laboratorio de computacion 1/Generala/rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
