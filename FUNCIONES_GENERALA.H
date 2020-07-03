@@ -17,7 +17,6 @@ void juego2jugadores();
 int contarNumerosRepetidos(int v[], int tam , int numero);
 int maximoVector(int v[], int tam);///devuelve  la posición (primera) que ocupa el máximo en el vector
 void ordenarVector(int v[], int tam );/// ordena de menor a mayor un vector
-int copiarVector(int v[], int v2[],int tam ); ///copia el vector v en v2
 bool compararVectores(int v[], int v2[],int tam );// compara los dos vectores que recibe. Si son iguales ///devuelve true, si no devuelve false
 
 int funcionPuntos (int vecDados[]);
@@ -264,13 +263,6 @@ void ordenarVector(int v[], int tam ){
     }
 }
 
-int copiarVector(int v[], int v2[],int tam ){
-    int i;
-    for(i=0;i<tam;i++){
-        v2[i]=v[i];
-    }
-}
-
 bool compararVectores(int v[], int v2[],int tam ){
    int i;
     for(i=0;i<tam;i++){
@@ -314,13 +306,11 @@ void juego1jugador(){
             system("pause");
             cout<<endl;
             while ( getchar() != '\n');
-            cargarDados(vecDados);
-            //tirarDados (vecDados, tam);
+            //cargarDados(vecDados);
+            tirarDados (vecDados, tam);
             mostrarDados(vecDados, tam);
             puntajeRonda=funcionPuntos(vecDados);
-            cout<<endl;
-            cout<<"PUNTOS: "<<puntajeRonda<<endl;
-            cout<<endl;
+
             if (puntajeRonda==50 && lanzamiento==1){
                 rlutil::cls();
                 cout<<"GENERALA SERVIDA!! FIN DEL JUEGO, EL GANADOR ES: "<<jugador<<endl;
@@ -374,6 +364,9 @@ void juego1jugador(){
                         }
                     }
                     mostrarDados(vecDados, 5);
+                    if (lanzamiento==3){
+                        puntajeRonda=funcionPuntos(vecDados);
+                    }
                     cout<<endl;
                     cout<<"Lanzamiento n° "<<lanzamiento<<endl;
                     cout<<endl;
@@ -388,12 +381,13 @@ void juego1jugador(){
                 while ( getchar() != '\n');
                 lanzamiento=3;
 
-                //sumarPuntos(vecDados,tam);
+                puntajeRonda=funcionPuntos(vecDados);
                 cout<<endl;
                 break;
             }
         }
             if (generalaServida==false){
+            puntajeTotal+=puntajeRonda;
             cout<< "Fin del turno de "<<jugador<<endl;
             cout<<endl;
             cout<<"Fin de la ronda n° "<<ronda<<endl;
@@ -410,6 +404,7 @@ void juego1jugador(){
             cout<<endl;
             }
         }
+        puntajeRonda=0;
         lanzamiento=1;
         ronda++;
         if (ronda>=11) {
@@ -425,10 +420,11 @@ void juego1jugador(){
 
 void juego2jugadores(){
 
-    int  matrixJuego[3][3], vecDados[6]={}, opcion, ronda=1, puntajeTotal1=0, puntajeTotal2=0, puntajeMaximo=0;
+    int  vecDados[6]={}, opcion, ronda=1, puntajeTotal1=0, puntajeTotal2=0, puntajeMaximo=0;
     int puntajeRonda=0, lanzamiento=1, i;
-    char ganador[25], jugador1[25], jugador2[25], continuarLanzando;
+    char jugador1[25], jugador2[25], continuarLanzando;
     int tam=5, cualDado;
+    bool generalaServida=false;
 
 
     cout<<"INGRESE NOMBRE DEL JUGADOR 1: "<<endl;
@@ -454,11 +450,23 @@ while (ronda<=10){
         system("pause");
         cout<<endl;
         while ( getchar() != '\n');
-        tirarDados (vecDados, tam);
-        mostrarDados(vecDados, tam);
-        cout<<endl;
-        cout<<endl;
+        //cargarDados(vecDados);
+            tirarDados (vecDados, tam);
+            mostrarDados(vecDados, tam);
+            puntajeRonda=funcionPuntos(vecDados);
 
+            if (puntajeRonda==50 && lanzamiento==1){
+                rlutil::cls();
+                cout<<"GENERALA SERVIDA!! FIN DEL JUEGO, EL GANADOR ES: "<<jugador1<<endl;
+                cout<<endl;
+                cout<<endl;
+                ronda=11;
+                lanzamiento=3;
+                generalaServida=true;
+                rlutil::anykey();
+            }
+            cout<<endl;
+            cout<<endl;
         while (lanzamiento<3){
             cout<<"¿Continuar lanzando?: "<<endl;
             cin>>continuarLanzando;
@@ -500,6 +508,10 @@ while (ronda<=10){
                         }
                     }
                     mostrarDados(vecDados, 5);
+
+                    if (lanzamiento==3){
+                        puntajeRonda=funcionPuntos(vecDados);
+                    }
                     cout<<endl;
                     cout<<"Lanzamiento n° "<<lanzamiento<<endl;
                     cout<<endl;
@@ -515,13 +527,16 @@ while (ronda<=10){
                 while ( getchar() != '\n');
 
                 lanzamiento=3;
+                puntajeRonda=funcionPuntos(vecDados);
 
                 cout<<endl;
                 break;
             }
         }
         }
+        puntajeTotal1+=puntajeRonda;
 
+        if (generalaServida==false){
         cout<< "Fin del turno de "<<jugador1<<endl;
         cout<<endl;
         cout<<"Ronda n° "<<ronda<<endl;
@@ -536,6 +551,7 @@ while (ronda<=10){
         system("pause");
         cout<<endl;
         while ( getchar() != '\n');
+        }
 
         lanzamiento=1;
         puntajeRonda=0;
@@ -553,10 +569,22 @@ while (ronda<=10){
         system("pause");
         cout<<endl;
         while ( getchar() != '\n');
-        tirarDados (vecDados, tam);
+        cargarDados(vecDados);
+        //tirarDados (vecDados, tam);
         mostrarDados(vecDados, tam);
-        cout<<endl;
-        cout<<endl;
+        puntajeRonda=funcionPuntos(vecDados);
+         if (puntajeRonda==50 && lanzamiento==1){
+                rlutil::cls();
+                cout<<"GENERALA SERVIDA!! FIN DEL JUEGO, EL GANADOR ES: "<<jugador2<<endl;
+                cout<<endl;
+                cout<<endl;
+                ronda=11;
+                lanzamiento=3;
+                generalaServida=true;
+                rlutil::anykey();
+            }
+            cout<<endl;
+            cout<<endl;
         while (lanzamiento<3){
             cout<<"¿Continuar lanzando?: "<<endl;
             cin>>continuarLanzando;
@@ -598,6 +626,9 @@ while (ronda<=10){
                         }
                     }
                     mostrarDados(vecDados, 5);
+                    if (lanzamiento==3){
+                        puntajeRonda=funcionPuntos(vecDados);
+                    }
                     cout<<endl;
                     cout<<"Lanzamiento n° "<<lanzamiento<<endl;
                     cout<<endl;
@@ -611,12 +642,16 @@ while (ronda<=10){
                 cout<<endl;
                 while ( getchar() != '\n');
                 lanzamiento=3;
+                puntajeRonda=funcionPuntos(vecDados);
 
 
                 cout<<endl;
                 break;
             }
         }
+        puntajeTotal2+=puntajeRonda;
+
+        if (generalaServida==false){
             cout<< "Fin del turno de "<<jugador2<<endl;
             cout<<endl;
             cout<<"Fin de la ronda n° "<<ronda<<endl;
@@ -634,9 +669,12 @@ while (ronda<=10){
 
             cout<<endl;
         }
+        }
+
         lanzamiento=1;
+        puntajeRonda=0;
         ronda++;
-        if (ronda==11) {
+        if (ronda>=11) {
             cout<<"FIN DEL JUEGO"<<endl;
             cout<<endl;
             cout<<endl;
