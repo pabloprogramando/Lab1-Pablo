@@ -22,13 +22,10 @@ while(true){
     cout<<"MENÚ DEL JUEGO"<<endl;
     cout<<"1- JUEGA UN JUGADOR "<<endl;
     cout<<"2- JUEGAN DOS JUGADORES "<<endl;
-    cout<<"3- PUNTACIÓN MÁS ALTA"<<endl;
-    cout<<"4- SALIR"<<endl;
+    cout<<"3- SALIR"<<endl;
     cout<<"ELIJA UNA OPCIÓN "<<endl;
     cin>>opcion;
-    cin.ignore();
-
-
+    rlutil::anykey();
     rlutil::cls();
 
     switch(opcion){
@@ -42,11 +39,9 @@ while(true){
             break;
 
         case 3:
-            cout<<"Puntuación más alta: "<<puntajeMaximo<<endl;
-            break;
-        case 4:
             return 0;
             break;
+
         default:
             rlutil::cls();
             cout<<"Opción es incorrecta. Por favor ingrese enter y vuelva a ingresar una opción..."<<endl;
@@ -57,9 +52,3 @@ while(true){
         }
     }
 }
-
-
-/** vecDados[6], opcion, ronda=1, puntajeTotal1=0, puntajeTotal2=0, puntajeMaximo=0;
-int puntajeRonda=0, lanzamiento=1, lanzamiento=1;
-char ganador[25], jugador1[25], jugador2[25], continuarLanzando;
-const int tam=5; **/
