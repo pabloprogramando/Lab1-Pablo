@@ -267,10 +267,10 @@ bool compararVectores(int v[], int v2[],int tam ){
 
 
 int juego1jugador(){
-    int vecDados[6]={}, opcion, ronda=1, puntajeTotal=0;
-    int puntajeRonda=0, lanzamiento=1, i;
+    int vecDados[6]={}, opcion, ronda=1, puntajeTotal=0, cualDado, cant, puntajeRonda=0, lanzamiento=1, i;
+    const int tam=5;
     char ganador[25], jugador[25], continuarLanzando;
-    int tam=5, cualDado;
+
     bool generalaServida=false;
 
 
@@ -294,8 +294,8 @@ int juego1jugador(){
             system("pause");
             cout<<endl;
             while ( getchar() != '\n');
-            cargarDados(vecDados);
-            //tirarDados (vecDados, tam);
+            //cargarDados(vecDados);
+            tirarDados (vecDados, tam);
             mostrarDados(vecDados, tam);
             puntajeRonda=funcionPuntos(vecDados);
 
@@ -320,12 +320,12 @@ int juego1jugador(){
             case 's':
                 lanzamiento++;
                 cout<<"¿Cuántos dados desea volver a lanzar?: "<<endl;
-                cin>>tam;
-                if (tam==5){
+                cin>>cant;
+                if (cant==5){
                     tirarDados(vecDados, tam);
                 }
                 else {
-                    for (i=0;i<tam;i++){
+                    for (i=0;i<cant;i++){
                         cout<<"¿Cuál dado?: "<<endl;
                         cin>>cualDado;
                         switch (cualDado) {
@@ -359,7 +359,7 @@ int juego1jugador(){
                     cout<<endl;
                     cout<<"Lanzamiento n° "<<lanzamiento<<endl;
                     cout<<endl;
-                    tam=5;
+                    cant=5;
             break;
 
             case 'n':
@@ -412,10 +412,10 @@ return puntajeTotal;
 
 int juego2jugadores(){
 
-    int  vecDados[6]={}, opcion, ronda=1, puntajeTotal1=0, puntajeMaximo, puntajeTotal2=0, empateGeneralaServida=0;
+    int  vecDados[6]={},cualDado, cant, opcion, ronda=1, puntajeTotal1=0, puntajeMaximo, puntajeTotal2=0, empateGeneralaServida=0;
     int puntajeRonda=0, lanzamiento=1, i, puntajeParaMain;
     char jugador1[25], jugador2[25], continuarLanzando;
-    int tam=5, cualDado;
+    const int tam=5;
     bool generalaServida=false;
 
 
@@ -438,16 +438,14 @@ while (ronda<=10 && generalaServida==false){
         cout<<endl;
         cout<<endl;
         cout<< "Presione enter para tirar los dados...";
-        cin.ignore();
-        system("pause");
         cout<<endl;
-        while ( getchar() != '\n');
+        rlutil::anykey();
         //cargarDados(vecDados);
-            tirarDados (vecDados, tam);
-            mostrarDados(vecDados, tam);
-            puntajeRonda=funcionPuntos(vecDados);
+        tirarDados (vecDados, tam);
+        mostrarDados(vecDados, tam);
+        puntajeRonda=funcionPuntos(vecDados);
 
-            if (puntajeRonda==50 && lanzamiento==1){
+        if (puntajeRonda==50 && lanzamiento==1){
                 rlutil::cls();
                 cout<<"GENERALA SERVIDA!! FIN DEL JUEGO, EL GANADOR ES: "<<jugador1<<endl;
                 cout<<endl;
@@ -458,7 +456,7 @@ while (ronda<=10 && generalaServida==false){
                 lanzamiento=3;
                 generalaServida=true;
                 rlutil::anykey();
-            }
+        }
             cout<<endl;
             cout<<endl;
         while (lanzamiento<3){
@@ -469,12 +467,12 @@ while (ronda<=10 && generalaServida==false){
             case 's':
                 lanzamiento++;
                 cout<<"¿Cuántos dados desea volver a lanzar?: "<<endl;
-                cin>>tam;
-                if (tam==5){
+                cin>>cant;
+                if (cant==5){
                     tirarDados(vecDados, tam);
                 }
                 else {
-                    for (i=0;i<tam;i++){
+                    for (i=0;i<cant;i++){
                         cout<<"¿Cuál dado?: "<<endl;
                         cin>>cualDado;
                         switch (cualDado) {
@@ -509,7 +507,7 @@ while (ronda<=10 && generalaServida==false){
                     cout<<endl;
                     cout<<"Lanzamiento n° "<<lanzamiento<<endl;
                     cout<<endl;
-                    tam=5;
+                    cant=5;
             break;
 
             case 'n':
@@ -592,12 +590,12 @@ while (ronda<=10 && generalaServida==false){
             case 's':
                 lanzamiento++;
                 cout<<"¿Cuántos dados desea volver a lanzar?: "<<endl;
-                cin>>tam;
-                if (tam==5){
+                cin>>cant;
+                if (cant==5){
                     tirarDados(vecDados, tam);
                 }
                 else {
-                    for (i=0;i<tam;i++){
+                    for (i=0;i<cant;i++){
                         cout<<"¿Cuál dado?: "<<endl;
                         cin>>cualDado;
                         switch (cualDado) {
@@ -631,7 +629,7 @@ while (ronda<=10 && generalaServida==false){
                     cout<<endl;
                     cout<<"Lanzamiento n° "<<lanzamiento<<endl;
                     cout<<endl;
-                    tam=5;
+                    cant=5;
             break;
 
             case 'n':
