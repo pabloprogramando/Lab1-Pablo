@@ -294,7 +294,7 @@ void juego1jugador(){
         cout<<endl;
         while ( getchar() != '\n');
 
-    while (ronda<=10 || generalaServida==false){
+    while (ronda<=10 && generalaServida==false){
         while (lanzamiento<3){
             cout<<"Turno de "<<jugador<<endl;
             cout<<"Ronda n° "<<ronda<<endl;
@@ -306,8 +306,8 @@ void juego1jugador(){
             system("pause");
             cout<<endl;
             while ( getchar() != '\n');
-            //cargarDados(vecDados);
-            tirarDados (vecDados, tam);
+            cargarDados(vecDados);
+            //tirarDados (vecDados, tam);
             mostrarDados(vecDados, tam);
             puntajeRonda=funcionPuntos(vecDados);
 
@@ -412,6 +412,7 @@ void juego1jugador(){
             cout<<endl;
             cout<<endl;
             cout<<endl;
+
             }
     }
 }
@@ -437,7 +438,7 @@ void juego2jugadores(){
     cout<<endl;
     while ( getchar() != '\n');
 
-while (ronda<=10 || generalaServida==false){
+while (ronda<=10 && generalaServida==false){
     while (lanzamiento<3){
         cout<<"Turno de "<<jugador1<<endl;
         cout<<"Ronda n° "<<ronda<<endl;
