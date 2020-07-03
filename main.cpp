@@ -1,12 +1,8 @@
-#include <clocale>
-#include<cstdlib>
-#include<cstdio>
-#include<ctime>
-#include<ctype.h>
-#include<cstring>
-#include"FUNCIONES_GENERALA.H"
-#include "rlutil.h"
 #include <iostream>
+#include<cstdio>
+#include<cstdlib>
+#include "rlutil.h"
+#include"FUNCIONES_GENERALA.H"
 using namespace std;
 
 

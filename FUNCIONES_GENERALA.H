@@ -1,20 +1,20 @@
-#include<cstdio>
 #include <iostream>
-using namespace std;
+#include<cstdio>
 #include<cstdlib>
+#include<ctime>
 #include "rlutil.h"
+using namespace std;
 #ifndef FUNCIONES_GENERALA_H_INCLUDED
 #define FUNCIONES_GENERALA_H_INCLUDED
 
 
-void cargarDados (int vecDados[]); ///carga el numero de dado que queremos asignarle al vecDados de forma manual
+void cargarDados (int vecDados[]); ///carga el numero de dado que queremos asignarle al vecDados de forma manual, (se encuentra comentada siguiente a tirarDados)
 void tirarDados(int vecDados[], int tam);
 void mostrarDados(int vecDados[], int tam);
 void resetDados(int vecDados[], int tam);
 int juego1jugador();
 int juego2jugadores();
-
-int copiarVector(int v[], int v2[],int tam ); ///copia el vector v en v2
+void copiarVector(int v[], int v2[],int tam ); ///copia el vector v en v2
 int contarNumerosRepetidos(int v[], int numero, int tam);
 int maximoVector(int v[], int tam);///devuelve  la posición (primera) que ocupa el máximo en el vector
 void ordenarVector(int v[], int tam );/// ordena de menor a mayor un vector
@@ -229,7 +229,7 @@ int funcionPuntos (int vDados[]){
 return puntos;
 }
 
-int copiarVector(int v[], int v2[],int tam ){
+void copiarVector(int v[], int v2[],int tam ){
     int i;
     for(i=0;i<tam;i++){
         v2[i]=v[i];
@@ -277,21 +277,19 @@ bool compararVectores(int v[], int v2[],int tam ){
 
 
 int juego1jugador(){
-    int vecDados[6]={}, opcion, ronda=1, puntajeTotal=0, cualDado, cant=0, puntajeRonda=0, lanzamiento=1, i;
+    int vecDados[6]={}, ronda=1, puntajeTotal=0, cualDado, cant=0, puntajeRonda=0, lanzamiento=1, i;
     const int tam=5;
-    char ganador[25], jugador[25], continuarLanzando;
+    char jugador[25], continuarLanzando;
     bool generalaServida=false;
 
     srand(time(NULL));
 
-
-        cout<<"INGRESE NOMBRE DEL JUGADOR: "<<endl;
-        cin.getline(jugador,25);
-        cout<< "¡A comenzar a jugar!"<<endl;
-        cout<< "Presione enter para continuar...";
-        system("pause");
-        cout<<endl;
-        while ( getchar() != '\n');
+    cout<<"INGRESE NOMBRE DEL JUGADOR: "<<endl;
+    cin.getline(jugador,25);
+    cout<< "¡A comenzar a jugar!"<<endl;
+    cout<< "Presione enter para continuar...";
+    rlutil::anykey();
+    cout<<endl;
 
     while (ronda<=10 && generalaServida==false){
         while (lanzamiento<3){
@@ -397,19 +395,14 @@ int juego1jugador(){
 return puntajeTotal;
 }
 
-
-
-
 int juego2jugadores(){
 
-    int  vecDados[6]={},cualDado, cant, opcion, ronda=1, puntajeTotal1=0, puntajeMaximo, puntajeTotal2=0, empateGeneralaServida=0;
-    int puntajeRonda=0, lanzamiento=1, i, puntajeParaMain;
+    int  vecDados[6]={},cualDado, cant, ronda=1, puntajeTotal1=0, puntajeTotal2=0;
+    int puntajeRonda=0, lanzamiento=1, i, puntajeParaMain, empateGeneralaServida=0;
     char jugador1[25], jugador2[25], continuarLanzando;
     const int tam=5;
     bool generalaServida=false;
     srand(time(NULL));
-
-
 
     cout<<"INGRESE NOMBRE DEL JUGADOR 1: "<<endl;
     cin.getline(jugador1,25);
@@ -417,9 +410,9 @@ int juego2jugadores(){
     cin.getline(jugador2,25);
     cout<< "¡A comenzar a jugar!"<<endl;
     cout<< "Presione enter para continuar...";
-    system("pause");
+    rlutil::anykey();
     cout<<endl;
-    while ( getchar() != '\n');
+
 
 while (ronda<=10 && generalaServida==false){
     while (lanzamiento<3){
@@ -532,9 +525,9 @@ while (ronda<=10 && generalaServida==false){
         cout<<endl;
         cout<<endl;
         cout<< "Presione enter para tirar los dados...";
-        system("pause");
+        rlutil::anykey();
         cout<<endl;
-        while ( getchar() != '\n');
+
         //cargarDados(vecDados);
         tirarDados (vecDados, tam);
         mostrarDados(vecDados, tam);
@@ -585,9 +578,8 @@ while (ronda<=10 && generalaServida==false){
             case 'n':
             case 'N':
                 cout<< "Presione enter para continuar...";
-                system("pause");
+                rlutil::anykey();
                 cout<<endl;
-                while ( getchar() != '\n');
                 lanzamiento=3;
                 puntajeRonda=funcionPuntos(vecDados);
 
@@ -610,11 +602,8 @@ while (ronda<=10 && generalaServida==false){
             ronda++;
 
             cout<< "Presione enter para continuar...";
-            system("pause");
+            rlutil::anykey();
             cout<<endl;
-            while ( getchar() != '\n');
-
-
             cout<<endl;
         }
         }
@@ -660,7 +649,6 @@ return puntajeParaMain;
 }
 
 
-
 void cargarDados (int vecDados[]){
     int i;
     for(i=0;i<5;i++){
@@ -671,7 +659,7 @@ void cargarDados (int vecDados[]){
 }
 
 void tirarDados(int vecDados[], int tam){
-    int i, n;
+    int i;
     srand(time(NULL));
     for(i=0;i<tam;i++){
        vecDados[i]=(rand()%6)+1;
