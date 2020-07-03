@@ -1,6 +1,7 @@
 #include <iostream>
 #include<cstdio>
 #include<cstdlib>
+#include<cstring>
 #include<ctime>
 #include "rlutil.h"
 using namespace std;

@@ -1,6 +1,7 @@
 #include <iostream>
 #include<cstdio>
 #include<cstdlib>
+#include<cstring>
 #include "rlutil.h"
 #include"FUNCIONES_GENERALA.H"
 using namespace std;
