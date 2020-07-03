@@ -294,7 +294,7 @@ void juego1jugador(){
         cout<<endl;
         while ( getchar() != '\n');
 
-    while (ronda<=10){
+    while (ronda<=10 || generalaServida==false){
         while (lanzamiento<3){
             cout<<"Turno de "<<jugador<<endl;
             cout<<"Ronda n° "<<ronda<<endl;
@@ -316,7 +316,7 @@ void juego1jugador(){
                 cout<<"GENERALA SERVIDA!! FIN DEL JUEGO, EL GANADOR ES: "<<jugador<<endl;
                 cout<<endl;
                 cout<<endl;
-                ronda=11;
+
                 lanzamiento=3;
                 generalaServida=true;
                 rlutil::anykey();
@@ -420,7 +420,7 @@ void juego1jugador(){
 
 void juego2jugadores(){
 
-    int  vecDados[6]={}, opcion, ronda=1, puntajeTotal1=0, puntajeTotal2=0, puntajeMaximo=0;
+    int  vecDados[6]={}, opcion, ronda=1, puntajeTotal1=0, puntajeTotal2=0, empateGeneralaServida=0;
     int puntajeRonda=0, lanzamiento=1, i;
     char jugador1[25], jugador2[25], continuarLanzando;
     int tam=5, cualDado;
@@ -437,7 +437,7 @@ void juego2jugadores(){
     cout<<endl;
     while ( getchar() != '\n');
 
-while (ronda<=10){
+while (ronda<=10 || generalaServida==false){
     while (lanzamiento<3){
         cout<<"Turno de "<<jugador1<<endl;
         cout<<"Ronda n° "<<ronda<<endl;
@@ -460,7 +460,8 @@ while (ronda<=10){
                 cout<<"GENERALA SERVIDA!! FIN DEL JUEGO, EL GANADOR ES: "<<jugador1<<endl;
                 cout<<endl;
                 cout<<endl;
-                ronda=11;
+                empateGeneralaServida++;
+                ronda++;
                 lanzamiento=3;
                 generalaServida=true;
                 rlutil::anykey();
@@ -551,10 +552,13 @@ while (ronda<=10){
         system("pause");
         cout<<endl;
         while ( getchar() != '\n');
+
         }
+
 
         lanzamiento=1;
         puntajeRonda=0;
+
 
         cout<<endl;
 
@@ -578,8 +582,9 @@ while (ronda<=10){
                 cout<<"GENERALA SERVIDA!! FIN DEL JUEGO, EL GANADOR ES: "<<jugador2<<endl;
                 cout<<endl;
                 cout<<endl;
-                ronda=11;
+                ronda++;
                 lanzamiento=3;
+                empateGeneralaServida++;
                 generalaServida=true;
                 rlutil::anykey();
             }
@@ -660,6 +665,7 @@ while (ronda<=10){
             cout<<"Puntaje total de "<<jugador2<<": "<<puntajeTotal2<<endl;
             cout<<endl;
             cout<<"Próximo turno de "<<jugador1<<endl;
+            ronda++;
 
             cout<< "Presione enter para continuar...";
             system("pause");
@@ -671,17 +677,40 @@ while (ronda<=10){
         }
         }
 
-        lanzamiento=1;
-        puntajeRonda=0;
-        ronda++;
-        if (ronda>=11) {
+        if (generalaServida==false) {
+            lanzamiento=1;
+            puntajeRonda=0;
+        }
+
+    }
+       if (ronda>=11 || generalaServida==true) {
             cout<<"FIN DEL JUEGO"<<endl;
             cout<<endl;
             cout<<endl;
             cout<<endl;
+            if (empateGeneralaServida==2 || puntajeTotal1==puntajeTotal2){
+                cout<<"EMPATE"<<endl;
+                cout<<endl;
+                cout<<"LOS JUGADORES QUE HAN EMPATADO SON: "<<jugador1<<" Y "<<jugador2<<endl;
+                cout<<endl;
+            }
+            else {
+                if (puntajeTotal1>puntajeTotal2){
+                    cout<<endl;
+                    cout<<"EL GANADOR DE ESTE JUEGO ES: "<<jugador1<<endl;
+                    cout<<endl;
+                    cout<<"LA CANTIDAD DE RONDAS FUE DE: "<<ronda-1<<endl;
+                    cout<<endl;
+                }
+                else {
+                    cout<<endl;
+                    cout<<"EL GANADOR DE ESTE JUEGO ES: "<<jugador2<<endl;
+                    cout<<endl;
+                    cout<<"LA CANTIDAD DE RONDAS FUE DE: "<<ronda-1<<endl;
+                    cout<<endl;
+                }
+            }
         }
-
-    }
 }
 
 
