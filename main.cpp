@@ -47,8 +47,7 @@ while(true){
             break;
 
         case 2:
-            juego2jugadores();
-            puntaje2=juego1jugador();
+            puntaje2=juego2jugadores();
             if (bandjuego1==false){
                 puntajeMaximo=puntaje2;
             }

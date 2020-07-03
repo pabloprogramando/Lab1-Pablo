@@ -407,6 +407,8 @@ int juego2jugadores(){
     char jugador1[25], jugador2[25], continuarLanzando;
     const int tam=5;
     bool generalaServida=false;
+    srand(time(NULL));
+
 
 
     cout<<"INGRESE NOMBRE DEL JUGADOR 1: "<<endl;
