@@ -11,8 +11,8 @@ void cargarDados (int vecDados[]); ///carga el numero de dado que queremos asign
 void tirarDados(int vecDados[], int tam);
 void mostrarDados(int vecDados[], int tam);
 void resetDados(int vecDados[], int tam);
-void juego1jugador();
-void juego2jugadores();
+int juego1jugador();
+int juego2jugadores();
 
 int contarNumerosRepetidos(int v[], int tam , int numero);
 int maximoVector(int v[], int tam);///devuelve  la posición (primera) que ocupa el máximo en el vector
@@ -20,7 +20,6 @@ void ordenarVector(int v[], int tam );/// ordena de menor a mayor un vector
 bool compararVectores(int v[], int v2[],int tam );// compara los dos vectores que recibe. Si son iguales ///devuelve true, si no devuelve false
 
 int funcionPuntos (int vecDados[]);
-
 
 
 int funcionPuntos (int vecDados[]){
@@ -227,11 +226,6 @@ int funcionPuntos (int vecDados[]){
 return puntos;
 }
 
-
-
-
-
-
 int contarNumerosRepetidos(int v[], int numero, int tam){
     int i, cant=0;
     for(i=0;i<tam;i++){
@@ -272,14 +266,8 @@ bool compararVectores(int v[], int v2[],int tam ){
 }
 
 
-
-
-
-
-
-
-void juego1jugador(){
-    int vecDados[6]={}, opcion, ronda=1, puntajeTotal=0, puntajeMaximo=0;
+int juego1jugador(){
+    int vecDados[6]={}, opcion, ronda=1, puntajeTotal=0;
     int puntajeRonda=0, lanzamiento=1, i;
     char ganador[25], jugador[25], continuarLanzando;
     int tam=5, cualDado;
@@ -316,6 +304,7 @@ void juego1jugador(){
                 cout<<"GENERALA SERVIDA!! FIN DEL JUEGO, EL GANADOR ES: "<<jugador<<endl;
                 cout<<endl;
                 cout<<endl;
+                puntajeTotal+=100;
 
                 lanzamiento=3;
                 generalaServida=true;
@@ -415,14 +404,16 @@ void juego1jugador(){
 
             }
     }
+return puntajeTotal;
 }
 
 
 
-void juego2jugadores(){
 
-    int  vecDados[6]={}, opcion, ronda=1, puntajeTotal1=0, puntajeTotal2=0, empateGeneralaServida=0;
-    int puntajeRonda=0, lanzamiento=1, i;
+int juego2jugadores(){
+
+    int  vecDados[6]={}, opcion, ronda=1, puntajeTotal1=0, puntajeMaximo, puntajeTotal2=0, empateGeneralaServida=0;
+    int puntajeRonda=0, lanzamiento=1, i, puntajeParaMain;
     char jugador1[25], jugador2[25], continuarLanzando;
     int tam=5, cualDado;
     bool generalaServida=false;
@@ -461,6 +452,7 @@ while (ronda<=10 && generalaServida==false){
                 cout<<"GENERALA SERVIDA!! FIN DEL JUEGO, EL GANADOR ES: "<<jugador1<<endl;
                 cout<<endl;
                 cout<<endl;
+                puntajeTotal1+=100;
                 empateGeneralaServida++;
                 ronda++;
                 lanzamiento=3;
@@ -583,6 +575,7 @@ while (ronda<=10 && generalaServida==false){
                 cout<<"GENERALA SERVIDA!! FIN DEL JUEGO, EL GANADOR ES: "<<jugador2<<endl;
                 cout<<endl;
                 cout<<endl;
+                puntajeTotal2+=100;
                 ronda++;
                 lanzamiento=3;
                 empateGeneralaServida++;
@@ -697,13 +690,16 @@ while (ronda<=10 && generalaServida==false){
             }
             else {
                 if (puntajeTotal1>puntajeTotal2){
+                    puntajeParaMain=puntajeTotal1;
                     cout<<endl;
                     cout<<"EL GANADOR DE ESTE JUEGO ES: "<<jugador1<<endl;
                     cout<<endl;
                     cout<<"LA CANTIDAD DE RONDAS FUE DE: "<<ronda-1<<endl;
                     cout<<endl;
+
                 }
                 else {
+                    puntajeParaMain=puntajeTotal2;
                     cout<<endl;
                     cout<<"EL GANADOR DE ESTE JUEGO ES: "<<jugador2<<endl;
                     cout<<endl;
@@ -712,6 +708,7 @@ while (ronda<=10 && generalaServida==false){
                 }
             }
         }
+return puntajeParaMain;
 }
 
 
