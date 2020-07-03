@@ -14,19 +14,21 @@ void resetDados(int vecDados[], int tam);
 int juego1jugador();
 int juego2jugadores();
 
-int contarNumerosRepetidos(int v[], int tam , int numero);
+int copiarVector(int v[], int v2[],int tam ); ///copia el vector v en v2
+int contarNumerosRepetidos(int v[], int numero, int tam);
 int maximoVector(int v[], int tam);///devuelve  la posición (primera) que ocupa el máximo en el vector
 void ordenarVector(int v[], int tam );/// ordena de menor a mayor un vector
 bool compararVectores(int v[], int v2[],int tam );// compara los dos vectores que recibe. Si son iguales ///devuelve true, si no devuelve false
 
-int funcionPuntos (int vecDados[]);
+int funcionPuntos (int vDados[]);
 
 
-int funcionPuntos (int vecDados[]){
-    int i, puntos=0, puntos1=0, repetidos=0, vecEscalera1[5]={}, vecEscalera2[5]={};
+int funcionPuntos (int vDados[]){
+    int i, puntos=0, puntos1=0, repetidos=0, vecEscalera1[5]={}, vecEscalera2[5]={}, copiavDados[5];
     bool rep3=false, rep2=false, escalera1=false, escalera2=false;
+    const int tam=5;
 
-    repetidos=contarNumerosRepetidos(vecDados,1,5);
+    repetidos=contarNumerosRepetidos(vDados,1,5);
     if (repetidos==5){
     cout<<"Generala";
     puntos=50;
@@ -56,7 +58,7 @@ int funcionPuntos (int vecDados[]){
     }
 
 
-    repetidos=contarNumerosRepetidos(vecDados,2,5);
+    repetidos=contarNumerosRepetidos(vDados,2,5);
     if (repetidos==5){
     cout<<"Generala";
     puntos=50;
@@ -85,7 +87,7 @@ int funcionPuntos (int vecDados[]){
         }
     }
 
-    repetidos=contarNumerosRepetidos(vecDados,3,5);
+    repetidos=contarNumerosRepetidos(vDados,3,5);
     if (repetidos==5){
     cout<<"Generala";
     puntos=50;
@@ -114,7 +116,7 @@ int funcionPuntos (int vecDados[]){
         }
     }
 
-    repetidos=contarNumerosRepetidos(vecDados,4,5);
+    repetidos=contarNumerosRepetidos(vDados,4,5);
    if (repetidos==5){
     cout<<"Generala";
     puntos=50;
@@ -143,7 +145,7 @@ int funcionPuntos (int vecDados[]){
         }
     }
 
-    repetidos=contarNumerosRepetidos(vecDados,5,5);
+    repetidos=contarNumerosRepetidos(vDados,5,5);
     if (repetidos==5){
     cout<<"Generala";
     puntos=50;
@@ -172,7 +174,7 @@ int funcionPuntos (int vecDados[]){
         }
     }
 
-    repetidos=contarNumerosRepetidos(vecDados,6,5);
+    repetidos=contarNumerosRepetidos(vDados,6,5);
     if (repetidos==5){
     cout<<"Generala";
     puntos=50;
@@ -210,9 +212,10 @@ int funcionPuntos (int vecDados[]){
         vecEscalera1[i]=i+1;
         vecEscalera2[i]=i+2;
     }
-    ordenarVector(vecDados,5);
-    escalera1=compararVectores(vecDados,vecEscalera1,5);
-    escalera2=compararVectores(vecDados,vecEscalera2,5);
+    copiarVector(vDados, copiavDados, tam);
+    ordenarVector(copiavDados,5);
+    escalera1=compararVectores(copiavDados,vecEscalera1,5);
+    escalera2=compararVectores(copiavDados,vecEscalera2,5);
 
     if (escalera1==true || escalera2==true){
         puntos=25;
@@ -224,6 +227,13 @@ int funcionPuntos (int vecDados[]){
 
 
 return puntos;
+}
+
+int copiarVector(int v[], int v2[],int tam ){
+    int i;
+    for(i=0;i<tam;i++){
+        v2[i]=v[i];
+    }
 }
 
 int contarNumerosRepetidos(int v[], int numero, int tam){
@@ -267,11 +277,12 @@ bool compararVectores(int v[], int v2[],int tam ){
 
 
 int juego1jugador(){
-    int vecDados[6]={}, opcion, ronda=1, puntajeTotal=0, cualDado, cant, puntajeRonda=0, lanzamiento=1, i;
+    int vecDados[6]={}, opcion, ronda=1, puntajeTotal=0, cualDado, cant=0, puntajeRonda=0, lanzamiento=1, i;
     const int tam=5;
     char ganador[25], jugador[25], continuarLanzando;
-
     bool generalaServida=false;
+
+    srand(time(NULL));
 
 
         cout<<"INGRESE NOMBRE DEL JUGADOR: "<<endl;
@@ -291,9 +302,9 @@ int juego1jugador(){
             cout<<endl;
             cout<<endl;
             cout<< "Presione enter para tirar los dados...";
-            system("pause");
+            rlutil::anykey();
             cout<<endl;
-            while ( getchar() != '\n');
+
             //cargarDados(vecDados);
             tirarDados (vecDados, tam);
             mostrarDados(vecDados, tam);
@@ -328,38 +339,17 @@ int juego1jugador(){
                     for (i=0;i<cant;i++){
                         cout<<"¿Cuál dado?: "<<endl;
                         cin>>cualDado;
-                        switch (cualDado) {
-                            case 1:
-                            srand(time(NULL));
-                            vecDados[cualDado-1]=(rand()%6)+1;
-                            break;
-                            case 2:
-                            srand(time(NULL));
-                            vecDados[cualDado-1]=(rand()%6)+1;
-                            break;
-                            case 3:
-                            srand(time(NULL));
-                            vecDados[cualDado-1]=(rand()%6)+1;
-                            break;
-                            case 4:
-                            srand(time(NULL));
-                            vecDados[cualDado-1]=(rand()%6)+1;
-                            break;
-                            case 5:
-                            srand(time(NULL));
-                            vecDados[cualDado-1]=(rand()%6)+1;
-                            break;
-                            }
+                        vecDados[cualDado-1]=(rand()%6)+1;
                         }
                     }
-                    mostrarDados(vecDados, 5);
+                    mostrarDados(vecDados, tam);
                     if (lanzamiento==3){
                         puntajeRonda=funcionPuntos(vecDados);
                     }
                     cout<<endl;
                     cout<<"Lanzamiento n° "<<lanzamiento<<endl;
                     cout<<endl;
-                    cant=5;
+
             break;
 
             case 'n':
@@ -472,31 +462,10 @@ while (ronda<=10 && generalaServida==false){
                     tirarDados(vecDados, tam);
                 }
                 else {
-                    for (i=0;i<cant;i++){
+                      for (i=0;i<cant;i++){
                         cout<<"¿Cuál dado?: "<<endl;
                         cin>>cualDado;
-                        switch (cualDado) {
-                            case 1:
-                            srand(time(NULL));
-                            vecDados[cualDado-1]=(rand()%6)+1;
-                            break;
-                            case 2:
-                            srand(time(NULL));
-                            vecDados[cualDado-1]=(rand()%6)+1;
-                            break;
-                            case 3:
-                            srand(time(NULL));
-                            vecDados[cualDado-1]=(rand()%6)+1;
-                            break;
-                            case 4:
-                            srand(time(NULL));
-                            vecDados[cualDado-1]=(rand()%6)+1;
-                            break;
-                            case 5:
-                            srand(time(NULL));
-                            vecDados[cualDado-1]=(rand()%6)+1;
-                            break;
-                            }
+                        vecDados[cualDado-1]=(rand()%6)+1;
                         }
                     }
                     mostrarDados(vecDados, 5);
@@ -564,8 +533,8 @@ while (ronda<=10 && generalaServida==false){
         system("pause");
         cout<<endl;
         while ( getchar() != '\n');
-        cargarDados(vecDados);
-        //tirarDados (vecDados, tam);
+        //cargarDados(vecDados);
+        tirarDados (vecDados, tam);
         mostrarDados(vecDados, tam);
         puntajeRonda=funcionPuntos(vecDados);
          if (puntajeRonda==50 && lanzamiento==1){
@@ -595,31 +564,10 @@ while (ronda<=10 && generalaServida==false){
                     tirarDados(vecDados, tam);
                 }
                 else {
-                    for (i=0;i<cant;i++){
+                      for (i=0;i<cant;i++){
                         cout<<"¿Cuál dado?: "<<endl;
                         cin>>cualDado;
-                        switch (cualDado) {
-                            case 1:
-                            srand(time(NULL));
-                            vecDados[cualDado-1]=(rand()%6)+1;
-                            break;
-                            case 2:
-                            srand(time(NULL));
-                            vecDados[cualDado-1]=(rand()%6)+1;
-                            break;
-                            case 3:
-                            srand(time(NULL));
-                            vecDados[cualDado-1]=(rand()%6)+1;
-                            break;
-                            case 4:
-                            srand(time(NULL));
-                            vecDados[cualDado-1]=(rand()%6)+1;
-                            break;
-                            case 5:
-                            srand(time(NULL));
-                            vecDados[cualDado-1]=(rand()%6)+1;
-                            break;
-                            }
+                        vecDados[cualDado-1]=(rand()%6)+1;
                         }
                     }
                     mostrarDados(vecDados, 5);
