@@ -1,4 +1,3 @@
-
 #include <clocale>
 #include<cstdlib>
 #include<cstdio>
@@ -64,4 +63,3 @@ while(true){
 int puntajeRonda=0, lanzamiento=1, lanzamiento=1;
 char ganador[25], jugador1[25], jugador2[25], continuarLanzando;
 const int tam=5; **/
-
