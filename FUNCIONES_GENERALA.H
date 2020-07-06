@@ -9,6 +9,7 @@
 #include<cstring>
 #include "rlutil.h"
 using namespace std;
+using namespace rlutil;
 
 
 void cargarDados (int vecDados[]); ///carga el numero de dado que queremos asignarle al vecDados de forma manual, (se encuentra comentada siguiente a tirarDados)
@@ -906,9 +907,9 @@ void cargarDados (int vecDados[]){
     }
 }
 
-void tirarDados(int v[]){
+void tirarDados(int v[], int tam){
     int i;
-    for(i=0; i<5; i++){
+    for(i=0; i<tam; i++){
         v[i] = rand()%6+1;
         dibujarDado(i+1, v[i]);
     }
