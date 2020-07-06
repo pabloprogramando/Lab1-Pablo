@@ -908,25 +908,25 @@ void cargarDados (int vecDados[]){
 
 void tirarDados(int v[]){
     int i;
-    for(i=0; i<3; i++){
+    for(i=0; i<5; i++){
         v[i] = rand()%6+1;
         dibujarDado(i+1, v[i]);
     }
 }
 
 void recuadro(int x, int y, int ancho, int alto){
-    /// Reemplazar éstos códigos por los de Windows para correr en Windows.
-    const char *UI_BOTTOM_RIGHT = "\e(0\x6a\e(B"; // 188 - ┘
-    const char *UI_BOTTOM_LEFT = "\e(0\x6d\e(B"; // 200 - └
-    const char *UI_TOP_LEFT = "\e(0\x6c\e(B"; // 201 - ┌
-    const char *UI_TOP_RIGHT = "\e(0\x6b\e(B"; // 187 - ┐
-    const char *UI_CROSS = "\e(0\x6e\e(B"; // 206 - ┼
-    const char *UI_HORIZONTAL_LINE = "\e(0\x71\e(B"; // 205 - ─
-    const char *UI_HORIZONTAL_LINE_TOP =  "\e(0\x76\e(B"; // 202 - ┴
-    const char *UI_HORIZONTAL_LINE_BOTTOM =  "\e(0\x77\e(B"; // 203 - ┬";
-    const char *UI_VERTICAL_LINE = "\e(0\x78\e(B"; // 186 - │
-    const char *UI_VERTICAL_LINE_LEFT =  "\e(0\x74\e(B"; // 204 - ├
-    const char *UI_VERTICAL_LINE_RIGHT =  "\e(0\x75\e(B"; // 185 - ┤
+
+const char *UI_BOTTOM_RIGHT = "\xD9"; // 217 - ┘
+const char *UI_BOTTOM_LEFT = "\xC0"; // 192 - └
+const char *UI_TOP_LEFT = "\xDA"; // 218 - ┌
+const char *UI_TOP_RIGHT = "\xBF"; // 191 - ┐
+const char *UI_CROSS = "\xC5"; // 197 - ┼
+const char *UI_HORIZONTAL_LINE = "\xC4"; // 196 - ─
+const char *UI_HORIZONTAL_LINE_TOP = "\xC1"; // 193 - ┴
+const char *UI_HORIZONTAL_LINE_BOTTOM = "\xC2"; // 194 - ┬";
+const char *UI_VERTICAL_LINE = "\xB3"; // 179 - │
+const char *UI_VERTICAL_LINE_LEFT = "\xC3"; // 195 - ├
+const char *UI_VERTICAL_LINE_RIGHT = "\xB4"; // 180 - ┤
 
 
     /// Borramos el espacio del recuadro
