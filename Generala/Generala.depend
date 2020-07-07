@@ -1,43 +1,22 @@
 # depslib dependency file v1.0
-1593190670 source:/home/pablo/Escritorio/Laboratorio de computacion 1/TP FINAL INTEGRADOR/Generala/main.cpp
+1595184463 source:c:\users\vict\documents\laboratorio 1\generalaprueba\main.cpp
 	<iostream>
-	<clocale>
+	<cstdio>
+	<cstdlib>
+	<cstring>
+	"rlutil.h"
+	"FUNCIONES_GENERALA.H"
+
+1594089564 c:\users\vict\documents\laboratorio 1\generalaprueba\funciones_generala.h
+	<iostream>
 	<cstdlib>
 	<cstdio>
 	<ctime>
 	<ctype.h>
 	<cstring>
-	"FUNCIONES_GENERALA.H"
-
-1593155673 source:/home/pablo/Escritorio/Laboratorio de computacion 1/TP FINAL INTEGRADOR/Generala/FUNCIONES_GENERALA.CPP
-	<iostream>
-	"FUNCIONES_GENERALA.H"
-
-1593155740 /home/pablo/Escritorio/Laboratorio de computacion 1/TP FINAL INTEGRADOR/Generala/FUNCIONES_GENERALA.H
-
-1593293673 source:/home/pablo/Escritorio/Laboratorio de computacion 1/Generala/FUNCIONES_GENERALA.CPP
-	<iostream>
-
-1593805999 source:/home/pablo/Escritorio/Laboratorio de computacion 1/Generala/main.cpp
-	<iostream>
-	<cstdio>
-	<cstdlib>
-	<cstring>
-	"rlutil.h"
-	"FUNCIONES_GENERALA.H"
-
-1593808722 /home/pablo/Escritorio/Laboratorio de computacion 1/Generala/FUNCIONES_GENERALA.H
-	<iostream>
-	<cstdio>
-	<cstdlib>
-	<cstring>
-	<ctime>
 	"rlutil.h"
 
-1593375446 source:/home/pablo/Escritorio/Laboratorio de computacion 1/PRUEBAS/pruebas.cpp
-	<iostream>
-
-1593536482 /home/pablo/Escritorio/Laboratorio de computacion 1/Generala/rlutil.h
+1593358107 c:\users\vict\documents\laboratorio 1\generalaprueba\rlutil.h
 	<iostream>
 	<string>
 	<cstdio>
