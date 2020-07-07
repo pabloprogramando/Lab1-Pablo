@@ -748,7 +748,7 @@ int juego2jugadores(){
         cout<<"Puntaje total de "<<jugador2<<": "<<puntajeTotal2;
         rlutil::locate(12,12);
         cout<<"Puntaje total de "<<jugador1<<": "<<puntajeTotal1;
-        if (generalaServida1==false){
+        if (generalaServida1==false && generalaServida2==false){
         rlutil::locate(12,16);
         cout<<"Proximo turno de "<<jugador1;
         }
