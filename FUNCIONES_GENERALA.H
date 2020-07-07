@@ -16,6 +16,7 @@ void cargarDados (int vecDados[]); ///carga el numero de dado que queremos asign
 void tirarDados(int vecDados[], int tam);
 void dibujarDado(int nroDado, int valor);
 void recuadro(int x, int y, int ancho, int alto);
+void recuadro1(int x, int y, int ancho, int alto);
 void mostrarDados(int vecDados[], int tam);
 void resetDados(int vecDados[], int tam);
 int juego1jugador();
@@ -29,83 +30,11 @@ void Recuadro();///recuadro del juego
 int funcionPuntos (int vDados[]);
 void dados();
 void Recuadromenu();
-void dadosTiro();
 
 
 
-void dadosTiro(){
 
 
-    rlutil::locate(2,7);
-    rlutil::setBackgroundColor(rlutil::WHITE);
-    rlutil::setColor(rlutil::BLACK);
-    cout<<"    ";
-    rlutil::locate(2,8);
-    rlutil::setBackgroundColor(rlutil::WHITE);
-    rlutil::setColor(rlutil::BLACK);
-    cout<<"    ";
-    rlutil::locate(2,9);
-    rlutil::setBackgroundColor(rlutil::WHITE);
-    rlutil::setColor(rlutil::BLACK);
-    cout<<"    ";
-
-    rlutil::locate(7,7);
-    rlutil::setBackgroundColor(rlutil::WHITE);
-    rlutil::setColor(rlutil::BLACK);
-    cout<<"     ";
-    rlutil::locate(7,8);
-    rlutil::setBackgroundColor(rlutil::WHITE);
-    rlutil::setColor(rlutil::BLACK);
-    cout<<"     ";
-    rlutil::locate(7,9);
-    rlutil::setBackgroundColor(rlutil::WHITE);
-    rlutil::setColor(rlutil::BLACK);
-    cout<<"     ";
-
-    rlutil::locate(15,7);
-    rlutil::setBackgroundColor(rlutil::WHITE);
-    rlutil::setColor(rlutil::BLACK);
-    cout<<"     ";
-    rlutil::locate(15,8);
-    rlutil::setBackgroundColor(rlutil::WHITE);
-    rlutil::setColor(rlutil::BLACK);
-    cout<<"     ";
-    rlutil::locate(15,9);
-    rlutil::setBackgroundColor(rlutil::WHITE);
-    rlutil::setColor(rlutil::BLACK);
-    cout<<"     ";
-
-    rlutil::locate(23,7);
-    rlutil::setBackgroundColor(rlutil::WHITE);
-    rlutil::setColor(rlutil::BLACK);
-    cout<<"     ";
-    rlutil::locate(23,8);
-    rlutil::setBackgroundColor(rlutil::WHITE);
-    rlutil::setColor(rlutil::BLACK);
-    cout<<"     ";
-    rlutil::locate(23,9);
-    rlutil::setBackgroundColor(rlutil::WHITE);
-    rlutil::setColor(rlutil::BLACK);
-    cout<<"     ";
-
-    cout<<"     ";
-    rlutil::locate(31,7);
-    rlutil::setBackgroundColor(rlutil::WHITE);
-    rlutil::setColor(rlutil::BLACK);
-    cout<<"     ";
-    rlutil::locate(31,8);
-    rlutil::setBackgroundColor(rlutil::WHITE);
-    rlutil::setColor(rlutil::BLACK);
-    cout<<"     ";
-    rlutil::locate(31,9);
-    rlutil::setBackgroundColor(rlutil::WHITE);
-    rlutil::setColor(rlutil::BLACK);
-    cout<<"     ";
-
-rlutil::setBackgroundColor(rlutil::MAGENTA);
-rlutil::setColor(rlutil::WHITE);
-
-}
 
 
 
@@ -129,63 +58,50 @@ void dados(){
 rlutil::setBackgroundColor(rlutil::WHITE);
 rlutil::setColor(rlutil::BLACK);
 
-    rlutil::locate(3,10);
+    rlutil::locate(4,10);
     cout<<"     ";
-    rlutil::locate(3,11);
+    rlutil::locate(4,11);
     cout<<"  *  ";
-    rlutil::locate(3,12);
+    rlutil::locate(4,12);
     cout<<"     ";
 
-    rlutil::locate(10,10);
+    rlutil::locate(14,10);
     cout<<"*    ";
-    rlutil::locate(10,11);
+    rlutil::locate(14,11);
     cout<<"     ";
-    rlutil::locate(10,12);
-    cout<<"    *";
-
-    rlutil::locate(17,10);
-    cout<<"*    ";
-    rlutil::locate(17,11);
-    cout<<"  *  ";
-    rlutil::locate(17,12);
+    rlutil::locate(14,12);
     cout<<"    *";
 
     rlutil::locate(24,10);
-    cout<<"*   *";
+    cout<<"*    ";
     rlutil::locate(24,11);
-    cout<<"     ";
-    rlutil::locate(24,12);
-    cout<<"*   *";
-
-    rlutil::locate(31,10);
-    cout<<"*   *";
-    rlutil::locate(31,11);
     cout<<"  *  ";
-    rlutil::locate(31,12);
+    rlutil::locate(24,12);
+    cout<<"    *";
+
+    rlutil::locate(34,10);
+    cout<<"*   *";
+    rlutil::locate(34,11);
+    cout<<"     ";
+    rlutil::locate(34,12);
     cout<<"*   *";
 
-    rlutil::locate(38,10);
+    rlutil::locate(44,10);
     cout<<"*   *";
-    rlutil::locate(38,11);
+    rlutil::locate(44,11);
+    cout<<"  *  ";
+    rlutil::locate(44,12);
     cout<<"*   *";
-    rlutil::locate(38,12);
+
+    rlutil::locate(54,10);
+    cout<<"*   *";
+    rlutil::locate(54,11);
+    cout<<"*   *";
+    rlutil::locate(54,12);
     cout<<"*   *";
     }
 
 
-void Recuadro(){
- int x,y;
-for(x=0;x<48;x++){
-    rlutil::locate(x,1);
-    cout<<"-";
-     rlutil::locate(x,20);
-    cout<<"-";}
-for(y=2;y<20;y++){
-  rlutil::locate(1,y);
-    cout<<"|";
-     rlutil::locate(47,y);
-    cout<<"|";}
-}
 
 
 int funcionPuntos (int vDados[]){
@@ -195,7 +111,6 @@ int funcionPuntos (int vDados[]){
 
     repetidos=contarNumerosRepetidos(vDados,1,5);
     if (repetidos==5){
-    cout<<"Generala";
     puntos=50;
     }
     else {
@@ -225,7 +140,6 @@ int funcionPuntos (int vDados[]){
 
     repetidos=contarNumerosRepetidos(vDados,2,5);
     if (repetidos==5){
-    cout<<"Generala";
     puntos=50;
     }
     else {
@@ -254,7 +168,6 @@ int funcionPuntos (int vDados[]){
 
     repetidos=contarNumerosRepetidos(vDados,3,5);
     if (repetidos==5){
-    cout<<"Generala";
     puntos=50;
     }
     else {
@@ -283,7 +196,6 @@ int funcionPuntos (int vDados[]){
 
     repetidos=contarNumerosRepetidos(vDados,4,5);
    if (repetidos==5){
-    cout<<"Generala";
     puntos=50;
     }
     else {
@@ -312,7 +224,6 @@ int funcionPuntos (int vDados[]){
 
     repetidos=contarNumerosRepetidos(vDados,5,5);
     if (repetidos==5){
-    cout<<"Generala";
     puntos=50;
     }
     else {
@@ -341,7 +252,6 @@ int funcionPuntos (int vDados[]){
 
     repetidos=contarNumerosRepetidos(vDados,6,5);
     if (repetidos==5){
-    cout<<"Generala";
     puntos=50;
     }
     else {
@@ -447,68 +357,74 @@ int juego1jugador(){
     char jugador[25], continuarLanzando;
     bool generalaServida=false;
     srand(time(NULL));
-        Recuadro();
+        recuadro1(1,1,60,20);
         rlutil::locate(3,3);
         cout<<"INGRESE NOMBRE DEL JUGADOR: ";
-        cin>>jugador;
-        rlutil::locate(13,10);
+        cin.ignore();
+        cin.getline(jugador,25);
+        rlutil::locate(18,11);
         cout<< "A comenzar a jugar!"<<endl;
-        rlutil::locate(3,19);
+        rlutil::locate(3,20);
         system("pause");
         system("cls");
     while (ronda<=10 && generalaServida==false){
         while (lanzamiento<3){
-            Recuadromenu();
-            rlutil::locate(10,3);
+            recuadro1(1,1,60,20);
+            rlutil::locate(23,3);
             cout<<"Turno de "<<jugador<<endl;
-            rlutil::locate(5,7);
+            rlutil::locate(18,8);
             cout<<"Ronda N: "<<ronda;
-            rlutil::locate(5,9);
+            rlutil::locate(18,10);
             cout<<"Puntaje: "<<puntajeTotal;
-            rlutil::locate(5,11);
+            rlutil::locate(18,12);
             cout<<"Lanzamiento N: "<<lanzamiento;
-            rlutil::locate(2,19);
+            rlutil::locate(2,20);
             system("pause");
             system("cls");
             //cargarDados(vecDados);
             tirarDados (vecDados, tam);
-            Recuadromenu();
-            rlutil::locate(3,3);
+            recuadro1(1,1,60,20);
+            rlutil::locate(8,3);
             cout<<"Lanzamiento N: "<<lanzamiento;
-            rlutil::locate(24,3);
+            rlutil::locate(34,3);
             cout<<"Ronda N: "<<ronda;
 
             rlutil::locate(3,8);
             mostrarDados(vecDados, tam);
             puntajeRonda=funcionPuntos(vecDados);
+            rlutil::setBackgroundColor(rlutil::RED);
+            rlutil::setColor(rlutil::WHITE);
 
             if (puntajeRonda==50 && lanzamiento==1){
+                locate(2,20);
                 system("pause");
                 system("cls");
-                rlutil::setBackgroundColor(rlutil::WHITE);
-                rlutil::setColor(rlutil::BLACK);
-                Recuadro();
-                rlutil::locate(2,6);
-                cout<<"GENERALA SERVIDA!! FIN DEL JUEGO, EL GANADOR ES: "<<jugador;
-                rlutil::setBackgroundColor(rlutil::MAGENTA);
+                setBackgroundColor(WHITE);
+                setColor(BLACK);
+                recuadro(1,1,60,20);
+                rlutil::locate(12,9);
+                cout<<"GENERALA SERVIDA!! FIN DEL JUEGO";
+                locate(12,11);
+                cout<< "EL GANADOR ES: "<<jugador;
+                setBackgroundColor(RED);
                 rlutil::setColor(rlutil::WHITE);
                 puntajeTotal+=100;
 
                 lanzamiento=3;
                 generalaServida=true;
-                rlutil::locate(2,19);
+                rlutil::locate(2,20);
                 system("pause");
             }
 
             while (lanzamiento<3){
-            rlutil::locate(3,11);
+            rlutil::locate(3,12);
             cout<<"Continuar lanzando S/N: ";
             cin>>continuarLanzando;
             switch (continuarLanzando){
             case 'S':
             case 's':
                 lanzamiento++;
-                rlutil::locate(3,12);
+                rlutil::locate(3,13);
                 cout<<"Cuantos dados desea volver a lanzar?: ";
                 cin>>cant;
                 if (cant==5){
@@ -516,35 +432,28 @@ int juego1jugador(){
                 }
                 else {
                     for (i=0;i<cant;i++){
-                        rlutil::locate(3,13+i);
+                        rlutil::locate(3,14+i);
                         cout<<"Cual dado?: ";
                         cin>>cualDado;
                         vecDados[cualDado-1]=(rand()%6)+1;
                         }
-
                     }
-
                     system("cls");
-                    Recuadromenu();
-                    rlutil::locate(3,3);
+                    recuadro1(1,1,60,20);
+                    rlutil::locate(8,3);
                     cout<<"Lanzamiento N: "<<lanzamiento;
-                    rlutil::locate(24,3);
+                    rlutil::locate(34,3);
                     cout<<"Ronda N: "<<ronda;
                     rlutil::locate(3,8);
                     mostrarDados(vecDados, tam);
                     if (lanzamiento==3){
                     puntajeRonda=funcionPuntos(vecDados);
-                    rlutil::locate(2,19);
+                    rlutil::locate(2,20);
                     system("pause");
                     }
-
-
-
             break;
-
             case 'n':
             case 'N':
-
                 system("cls");
                 while ( getchar() != '\n');
                 lanzamiento=3;
@@ -555,33 +464,32 @@ int juego1jugador(){
             if (generalaServida==false){
             puntajeTotal+=puntajeRonda;
             system("cls");
-            Recuadro();
-            rlutil::locate(9,7);
+            recuadro(1,1,60,20);
+            recuadro(8,4,46,15);
+            rlutil::locate(16,6);
             cout<<"Fin de la ronda N: "<<ronda;
-            rlutil::locate(9,10);
+            rlutil::locate(16,9);
             cout<<"Puntaje de la ronda : "<<puntajeRonda;
-            rlutil::locate(9,11);
+            rlutil::locate(16,12);
             cout<<"Puntaje total: "<<puntajeTotal;
-            rlutil::locate(9,14);
+            rlutil::locate(16,17);
             cout<<"Proximo turno ..."<<endl;
-            rlutil::locate(2,19);
+            rlutil::locate(2,20);
             system("pause");
             system("cls");
-
-            while ( getchar() != '\n');
-
             }
         }
         puntajeRonda=0;
         lanzamiento=1;
         ronda++;
         if (ronda>=11) {
-            Recuadro();
-            rlutil::locate(8,9);
+            recuadro(1,1,60,20);
+            recuadro(8,4,46,15);
+            rlutil::locate(12,9);
             cout<<"FIN DEL JUEGO de: "<<jugador;
-            rlutil::locate(8,12);
+            rlutil::locate(14,12);
             cout<<"Puntaje total: "<<puntajeTotal;
-            rlutil::locate(2,19);
+            rlutil::locate(2,20);
             system("pause");
             system("cls");
             }
@@ -595,44 +503,44 @@ int juego2jugadores(){
     int puntajeRonda=0, lanzamiento=1, i, puntajeParaMain, empateGeneralaServida=0;
     char jugador1[25], jugador2[25], continuarLanzando;
     const int tam=5;
-    bool generalaServida=false;
+    bool generalaServida1=false, generalaServida2=false;
     srand(time(NULL));
 
-    Recuadro();
+        recuadro(1,1,60,20);
         rlutil::locate(3,3);
-        cout<<"INGRESE NOMBRE DEL JUGADOR1: ";
-        cin>>jugador1;
+        cin.ignore();
+        cout<<"INGRESE NOMBRE DEL JUGADOR 1: ";
+        cin.getline(jugador1,25);
         rlutil::locate(3,5);
-        cout<<"INGRESE NOMBRE DEL JUGADOR2: ";
-        cin>>jugador2;
-        rlutil::locate(13,10);
+        cout<<"INGRESE NOMBRE DEL JUGADOR 2: ";
+        cin.getline(jugador2,25);
+        rlutil::locate(16,10);
         cout<< "A comenzar a jugar!"<<endl;
-        rlutil::locate(3,19);
+        rlutil::locate(2,20);
         system("pause");
         system("cls");
 
 
-while (ronda<=10 && generalaServida==false){
-    while (lanzamiento<3){
-         Recuadro();
-        rlutil::locate(10,3);
+    while (ronda<=10 && generalaServida1==false && generalaServida2==false){
+        while (lanzamiento<3){
+        recuadro1(1,1,60,20);
+        rlutil::locate(23,3);
         cout<<"Turno de "<<jugador1;
-        rlutil::locate(5,7);
+        rlutil::locate(18,8);
         cout<<"Ronda N: "<<ronda;
-        rlutil::locate(5,9);
+        rlutil::locate(18,10);
         cout<<"Puntaje de "<<jugador1<<": "<<puntajeTotal1;
-        rlutil::locate(5,11);
+        rlutil::locate(18,12);
         cout<<"Lanzamiento N: "<<lanzamiento;
-
-        rlutil::locate(2,19);
+        rlutil::locate(2,20);
         system("pause");
         system("cls");
-        //cargarDados(vecDados);
-        tirarDados (vecDados, tam);
-         Recuadromenu();
-        rlutil::locate(3,3);
+        cargarDados(vecDados);
+        //tirarDados (vecDados, tam);
+        recuadro1(1,1,60,20);
+        rlutil::locate(8,3);
         cout<<"Lanzamiento N: "<<lanzamiento;
-        rlutil::locate(24,3);
+        rlutil::locate(34,3);
         cout<<"Ronda N: "<<ronda;
 
         rlutil::locate(3,8);
@@ -640,33 +548,36 @@ while (ronda<=10 && generalaServida==false){
         puntajeRonda=funcionPuntos(vecDados);
 
         if (puntajeRonda==50 && lanzamiento==1){
+                locate(2,20);
                 system("pause");
                 system("cls");
                 rlutil::setBackgroundColor(rlutil::WHITE);
                 rlutil::setColor(rlutil::BLACK);
-                Recuadro();
-                rlutil::locate(2,8);
-                cout<<"GENERALA SERVIDA!! FIN DEL JUEGO, EL GANADOR ES: "<<jugador1;
-                rlutil::setBackgroundColor(rlutil::MAGENTA);
+                recuadro(1,1,60,20);
+                rlutil::locate(12,9);
+                cout<<"GENERALA SERVIDA!!";
+
+
+                setBackgroundColor(RED);
                 rlutil::setColor(rlutil::WHITE);
                 puntajeTotal1+=100;
                 empateGeneralaServida++;
-                ronda++;
+
                 lanzamiento=3;
-                generalaServida=true;
-                rlutil::locate(2,19);
+                generalaServida1=true;
+                rlutil::locate(2,20);
                 system("pause");
         }
 
         while (lanzamiento<3){
-            rlutil::locate(3,11);
+            rlutil::locate(3,12);
             cout<<"Continuar lanzando S/N: ";
             cin>>continuarLanzando;
             switch (continuarLanzando){
             case 'S':
             case 's':
                 lanzamiento++;
-                rlutil::locate(3,12);
+                rlutil::locate(3,13);
                 cout<<"Cuantos dados desea volver a lanzar?: ";
                 cin>>cant;
                 if (cant==5){
@@ -674,36 +585,30 @@ while (ronda<=10 && generalaServida==false){
                 }
                 else {
                     for (i=0;i<cant;i++){
-                        rlutil::locate(3,13+i);
+                        rlutil::locate(3,14+i);
                         cout<<"Cual dado?: ";
                         cin>>cualDado;
                         vecDados[cualDado-1]=(rand()%6)+1;
                         }
-
                     }
-
                     system("cls");
-                    Recuadromenu();
-                    rlutil::locate(3,3);
+                    recuadro1(1,1,60,20);
+                    rlutil::locate(8,3);
                     cout<<"Lanzamiento N: "<<lanzamiento;
-                    rlutil::locate(24,3);
+                    rlutil::locate(34,3);
                     cout<<"Ronda N: "<<ronda;
                     rlutil::locate(3,8);
                     mostrarDados(vecDados, tam);
                     if (lanzamiento==3){
                     puntajeRonda=funcionPuntos(vecDados);}
-                    rlutil::locate(2,19);
+                    rlutil::locate(2,20);
                     system("pause");
                     cant=5;
             break;
 
             case 'n':
             case 'N':
-
                 system("cls");
-
-                while ( getchar() != '\n');
-
                 lanzamiento=3;
                 puntajeRonda=funcionPuntos(vecDados);
                 break;
@@ -712,81 +617,84 @@ while (ronda<=10 && generalaServida==false){
         }
         puntajeTotal1+=puntajeRonda;
 
-        if (generalaServida==false){
-         Recuadro();
+
+        recuadro(1,1,60,20);
+        recuadro(8,4,46,15);
         rlutil::locate(10,3);
         cout<< "Fin del turno de: "<<jugador1;
-        rlutil::locate(5,6);
+        rlutil::locate(45,3);
         cout<<"Ronda N: "<<ronda;
-        rlutil::locate(5,8);
+        rlutil::locate(12,8);
         cout<<"Puntaje de la ronda de "<<jugador1<<": "<<puntajeRonda;
-        rlutil::locate(5,11);
+        rlutil::locate(12,10);
         cout<<"Puntaje total de "<<jugador1<<": "<<puntajeTotal1;
-        rlutil::locate(5,13);
+        rlutil::locate(12,12);
         cout<<"Puntaje total de "<<jugador2<<": "<<puntajeTotal2;
-        rlutil::locate(5,16);
+        rlutil::locate(12,16);
         cout<<"Proximo turno de "<<jugador2;
-        rlutil::locate(2,19);
+        rlutil::locate(2,20);
         system("pause");
         system("cls");
-        while ( getchar() != '\n');}
         lanzamiento=1;
         puntajeRonda=0;
 
 
         while (lanzamiento<3){
-        Recuadro();
-        rlutil::locate(10,3);
+        recuadro1(1,1,60,20);
+        rlutil::locate(23,3);
         cout<<"Turno de "<<jugador2;
-        rlutil::locate(5,7);
+        rlutil::locate(18,8);
         cout<<"Ronda N: "<<ronda;
-        rlutil::locate(5,9);
+        rlutil::locate(18,10);
         cout<<"Puntaje de "<<jugador2<<": "<<puntajeTotal2;
-        rlutil::locate(5,11);
+        rlutil::locate(18,12);
         cout<<"Lanzamiento N: "<<lanzamiento;
-        rlutil::locate(2,19);
+        rlutil::locate(2,20);
         system("pause");
         system("cls");
 
-        //cargarDados(vecDados);
-        tirarDados (vecDados, tam);
-        Recuadromenu();
-        rlutil::locate(3,3);
+        cargarDados(vecDados);
+        //tirarDados (vecDados, tam);
+        recuadro1(1,1,60,20);
+        rlutil::locate(8,3);
         cout<<"Lanzamiento N: "<<lanzamiento;
-        rlutil::locate(24,3);
+        rlutil::locate(34,3);
         cout<<"Ronda N: "<<ronda;
 
         rlutil::locate(3,8);
         mostrarDados(vecDados, tam);
         puntajeRonda=funcionPuntos(vecDados);
          if (puntajeRonda==50 && lanzamiento==1){
+                locate(2,20);
                 system("pause");
                system("cls");
                 rlutil::setBackgroundColor(rlutil::WHITE);
                 rlutil::setColor(rlutil::BLACK);
-                Recuadro();
-                rlutil::locate(2,8);
-                cout<<"GENERALA SERVIDA!! FIN DEL JUEGO, EL GANADOR ES: "<<jugador2;
-                rlutil::setBackgroundColor(rlutil::MAGENTA);
-                rlutil::setColor(rlutil::WHITE);
+                recuadro(1,1,60,20);
+                rlutil::locate(12,9);
+                cout<<"GENERALA SERVIDA!! FIN DEL JUEGO";
+                locate(12,11);
+                cout<< "EL GANADOR ES: "<<jugador2;
+                setBackgroundColor(RED);
+                setColor(WHITE);
                 puntajeTotal2+=100;
                 empateGeneralaServida++;
                 ronda++;
                 lanzamiento=3;
-                generalaServida=true;
-                rlutil::locate(2,19);
+                generalaServida2=true;
+                rlutil::locate(2,20);
                 system("pause");
             }
 
         while (lanzamiento<3){
-                rlutil::locate(3,11);
+             rlutil::locate(3,12);
             cout<<"Continuar lanzando S/N: ";
             cin>>continuarLanzando;
             switch (continuarLanzando){
             case 'S':
             case 's':
                 lanzamiento++;
-                rlutil::locate(3,12);
+                rlutil::locate(3,13);
                 cout<<"Cuantos dados desea volver a lanzar?: ";
                 cin>>cant;
                 if (cant==5){
@@ -794,25 +702,23 @@ while (ronda<=10 && generalaServida==false){
                 }
                 else {
                     for (i=0;i<cant;i++){
-                        rlutil::locate(3,13+i);
+                        rlutil::locate(3,14+i);
                         cout<<"Cual dado?: ";
                         cin>>cualDado;
                         vecDados[cualDado-1]=(rand()%6)+1;
                         }
-
                     }
-
                     system("cls");
-                    Recuadromenu();
+                    recuadro1(1,1,60,20);
                     rlutil::locate(3,3);
                     cout<<"Lanzamiento N: "<<lanzamiento;
-                    rlutil::locate(24,3);
+                    rlutil::locate(34,3);
                     cout<<"Ronda N: "<<ronda;
                     rlutil::locate(3,8);
                     mostrarDados(vecDados, tam);
                     if (lanzamiento==3){
                     puntajeRonda=funcionPuntos(vecDados);}
-                    rlutil::locate(2,19);
+                    rlutil::locate(2,20);
                     system("pause");
                     cant=5;
             break;
@@ -820,80 +726,83 @@ while (ronda<=10 && generalaServida==false){
             case 'n':
             case 'N':
                 system("cls");
-
                 lanzamiento=3;
                 puntajeRonda=funcionPuntos(vecDados);
-
-
                 cout<<endl;
                 break;
             }
         }
+        }
         puntajeTotal2+=puntajeRonda;
 
-        if (generalaServida==false){
-            Recuadro();
+
+        recuadro(1,1,60,20);
+        recuadro(8,4,46,15);
         rlutil::locate(10,3);
         cout<< "Fin del turno de: "<<jugador2;
-        rlutil::locate(5,6);
+        rlutil::locate(45,3);
         cout<<"Ronda N: "<<ronda;
-        rlutil::locate(5,8);
+        rlutil::locate(12,8);
         cout<<"Puntaje de la ronda de "<<jugador2<<": "<<puntajeRonda;
-        rlutil::locate(5,11);
+        rlutil::locate(12,10);
         cout<<"Puntaje total de "<<jugador2<<": "<<puntajeTotal2;
-        rlutil::locate(5,13);
+        rlutil::locate(12,12);
         cout<<"Puntaje total de "<<jugador1<<": "<<puntajeTotal1;
-        rlutil::locate(5,16);
+        if (generalaServida1==false){
+        rlutil::locate(12,16);
         cout<<"Proximo turno de "<<jugador1;
-        ronda++;
-        rlutil::locate(2,19);
+        }
+        rlutil::locate(2,20);
         system("pause");
         system("cls");
-        }
-        }
-        if (generalaServida==false) {
-            lanzamiento=1;
-            puntajeRonda=0;
-        }
+        lanzamiento=1;
+        puntajeRonda=0;
+        ronda++;
+
 
     }
-       if (ronda>=11 || generalaServida==true) {
-            Recuadromenu();
+       if (ronda>=11 || generalaServida1==true || generalaServida2==true) {
+            recuadro(1,1,60,20);
             rlutil::setBackgroundColor(rlutil::WHITE);
             rlutil::setColor(rlutil::BLACK);
-            rlutil::locate(13,3);
+            rlutil::locate(20,3);
             cout<<"FIN DEL JUEGO";
 
             if (empateGeneralaServida==2 || puntajeTotal1==puntajeTotal2){
-                rlutil::locate(15,8);
+                rlutil::locate(20,8);
                 cout<<"EMPATE";
-                rlutil::locate(3,10);
+                rlutil::locate(5,10);
                 cout<<"LOS JUGADORES SON: "<<jugador1<<" Y "<<jugador2;
+                locate(5,12);
+                cout<<"PUNTOS: "<<puntajeTotal1;
 
             }
             else {
-                if (puntajeTotal1>puntajeTotal2){
+                if (puntajeTotal1>puntajeTotal2 || generalaServida1==true){
                     puntajeParaMain=puntajeTotal1;
-                    rlutil::locate(5,8);
+                    rlutil::locate(7,8);
                     cout<<"EL GANADOR DE ESTE JUEGO ES: "<<jugador1;
-                   rlutil::locate(5,10);
+                   rlutil::locate(7,10);
                     cout<<"LA CANTIDAD DE RONDAS FUE DE: "<<ronda-1;
+                    locate(7,12);
+                    cout<<"PUNTOS: "<<puntajeTotal1;
 
                 }
                 else {
                     puntajeParaMain=puntajeTotal2;
-                    rlutil::locate(5,8);
+                    rlutil::locate(7,8);
                     cout<<"EL GANADOR DE ESTE JUEGO ES: "<<jugador2<<endl;
-                    rlutil::locate(5,10);
+                    rlutil::locate(7,10);
                     cout<<"LA CANTIDAD DE RONDAS FUE DE: "<<ronda-1<<endl;
-
+                    locate(7,12);
+                    cout<<"PUNTOS: "<<puntajeTotal2;
             }
         }
        }
-        rlutil::locate(2,19);
+        rlutil::locate(2,20);
         system("pause");
         system("cls");
-        rlutil::setBackgroundColor(rlutil::MAGENTA);
+        setBackgroundColor(RED);
         rlutil::setColor(rlutil::WHITE);
 return puntajeParaMain;
 }
@@ -911,7 +820,7 @@ void tirarDados(int v[], int tam){
     int i;
     for(i=0; i<tam; i++){
         v[i] = rand()%6+1;
-        dibujarDado(i+1, v[i]);
+
     }
 }
 
@@ -947,6 +856,64 @@ const char *UI_VERTICAL_LINE_RIGHT = "\xB4"; // 180 - ┤
         cout << UI_HORIZONTAL_LINE;
         locate(i, y+alto);
         cout << UI_HORIZONTAL_LINE;
+
+    }
+    /// Líneas verticales
+    for(i=y; i<=y+alto; i++){
+        locate(x, i);
+        cout << UI_VERTICAL_LINE;
+        locate(x+ancho, i);
+        cout << UI_VERTICAL_LINE;
+    }
+    /// Vértices
+    locate(x, y);
+    cout << UI_TOP_LEFT;
+    locate(x, y+alto);
+    cout << UI_BOTTOM_LEFT;
+    locate(x+ancho, y);
+    cout << UI_TOP_RIGHT;
+    locate(x+ancho, y+alto);
+    cout << UI_BOTTOM_RIGHT;
+    resetColor();
+    setBackgroundColor(RED);
+}
+
+
+void recuadro1(int x, int y, int ancho, int alto){
+
+const char *UI_BOTTOM_RIGHT = "\xD9"; // 217 - ┘
+const char *UI_BOTTOM_LEFT = "\xC0"; // 192 - └
+const char *UI_TOP_LEFT = "\xDA"; // 218 - ┌
+const char *UI_TOP_RIGHT = "\xBF"; // 191 - ┐
+const char *UI_CROSS = "\xC5"; // 197 - ┼
+const char *UI_HORIZONTAL_LINE = "\xC4"; // 196 - ─
+const char *UI_HORIZONTAL_LINE_TOP = "\xC1"; // 193 - ┴
+const char *UI_HORIZONTAL_LINE_BOTTOM = "\xC2"; // 194 - ┬";
+const char *UI_VERTICAL_LINE = "\xB3"; // 179 - │
+const char *UI_VERTICAL_LINE_LEFT = "\xC3"; // 195 - ├
+const char *UI_VERTICAL_LINE_RIGHT = "\xB4"; // 180 - ┤
+
+
+    /// Borramos el espacio del recuadro
+    int i, j;
+    for(i=x; i<=x+ancho; i++){
+        for(j=y; j<=y+alto; j++){
+            setBackgroundColor(RED);
+            locate(i, j);
+            cout << " ";
+
+        }
+    }
+    setColor(WHITE);
+    /// Líneas horizontales
+    for(i=x; i<=x+ancho; i++){
+        locate(i, y);
+        cout << UI_HORIZONTAL_LINE;
+        locate(i,4);
+        cout << UI_HORIZONTAL_LINE;
+        locate(i, y+alto);
+        cout << UI_HORIZONTAL_LINE;
+
     }
     /// Líneas verticales
     for(i=y; i<=y+alto; i++){
@@ -966,11 +933,10 @@ const char *UI_VERTICAL_LINE_RIGHT = "\xB4"; // 180 - ┤
     cout << UI_BOTTOM_RIGHT;
 }
 
-
 void dibujarDado(int nroDado, int valor){
-    const int Y = 5;
+    const int Y = 6;
     const int ALTO = 4;
-    const int INI = 15;
+    const int INI = -4;
     const int X = INI + (nroDado * 10);
     const int ANCHO = 8;
 
@@ -993,83 +959,83 @@ void dibujarDado(int nroDado, int valor){
     switch(valor){
         case 1:
             locate(CENTRO_X, CENTRO_Y);
-            cout << DOT;
+            cout <<"*";
         break;
         case 2:
             if (nroDado%2 == 0){
                 locate(IZQUIERDA, ARRIBA);
-                cout << DOT;
+                cout << "*";
                 locate(DERECHA, ABAJO);
-                cout << DOT;
+                cout << "*";
             }
             else{
                 locate(DERECHA, ARRIBA);
-                cout << DOT;
+                cout << "*";
                 locate(IZQUIERDA, ABAJO);
-                cout << DOT;
+                cout << "*";
             }
         break;
         case 3:
             if (nroDado%2 == 0){
                 locate(IZQUIERDA, ARRIBA);
-                cout << DOT;
+                cout << "*";
                 locate(DERECHA, ABAJO);
-                cout << DOT;
+                cout << "*";
             }
             else{
                 locate(DERECHA, ARRIBA);
-                cout << DOT;
+                cout << "*";
                 locate(IZQUIERDA, ABAJO);
-                cout << DOT;
+                cout << "*";
             }
             locate(CENTRO_X, CENTRO_Y);
-            cout << DOT;
+            cout << "*";
         break;
         case 4:
             locate(IZQUIERDA, ARRIBA);
-            cout << DOT;
+            cout << "*";
             locate(DERECHA, ABAJO);
-            cout << DOT;
+            cout << "*";
             locate(DERECHA, ARRIBA);
-            cout << DOT;
+            cout << "*";
             locate(IZQUIERDA, ABAJO);
-            cout << DOT;
+            cout << "*";
         break;
         case 5:
             locate(IZQUIERDA, ARRIBA);
-            cout << DOT;
+            cout << "*";
             locate(DERECHA, ABAJO);
-            cout << DOT;
+            cout << "*";
             locate(DERECHA, ARRIBA);
-            cout << DOT;
+            cout << "*";
             locate(IZQUIERDA, ABAJO);
-            cout << DOT;
+            cout << "*";
             locate(CENTRO_X, CENTRO_Y);
-            cout << DOT;
+            cout << "*";
         break;
         case 6:
             locate(IZQUIERDA, ARRIBA);
-            cout << DOT;
+            cout << "*";
             locate(DERECHA, ABAJO);
-            cout << DOT;
+            cout << "*";
             locate(DERECHA, ARRIBA);
-            cout << DOT;
+            cout << "*";
             locate(IZQUIERDA, ABAJO);
-            cout << DOT;
+            cout << "*";
             locate(DERECHA, CENTRO_Y);
-            cout << DOT;
+            cout << "*";
             locate(IZQUIERDA, CENTRO_Y);
-            cout << DOT;
+            cout << "*";
         break;
     }
     resetColor();
-    setBackgroundColor(DARKGREY);
+    setBackgroundColor(RED);
 }
 
  void mostrarDados(int vecDados[], int tam){
     int i;
     for(i=0;i<tam;i++){
-    cout<<vecDados[i]<<"\t";
+    dibujarDado(i+1, vecDados[i]);
 }
  }
 
