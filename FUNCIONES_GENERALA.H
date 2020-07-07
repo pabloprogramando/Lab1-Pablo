@@ -830,13 +830,13 @@ const char *UI_BOTTOM_RIGHT = "\xD9"; // 217 - ┘
 const char *UI_BOTTOM_LEFT = "\xC0"; // 192 - └
 const char *UI_TOP_LEFT = "\xDA"; // 218 - ┌
 const char *UI_TOP_RIGHT = "\xBF"; // 191 - ┐
-const char *UI_CROSS = "\xC5"; // 197 - ┼
+
 const char *UI_HORIZONTAL_LINE = "\xC4"; // 196 - ─
-const char *UI_HORIZONTAL_LINE_TOP = "\xC1"; // 193 - ┴
-const char *UI_HORIZONTAL_LINE_BOTTOM = "\xC2"; // 194 - ┬";
+
+
 const char *UI_VERTICAL_LINE = "\xB3"; // 179 - │
-const char *UI_VERTICAL_LINE_LEFT = "\xC3"; // 195 - ├
-const char *UI_VERTICAL_LINE_RIGHT = "\xB4"; // 180 - ┤
+
+
 
 
     /// Borramos el espacio del recuadro
@@ -885,13 +885,13 @@ const char *UI_BOTTOM_RIGHT = "\xD9"; // 217 - ┘
 const char *UI_BOTTOM_LEFT = "\xC0"; // 192 - └
 const char *UI_TOP_LEFT = "\xDA"; // 218 - ┌
 const char *UI_TOP_RIGHT = "\xBF"; // 191 - ┐
-const char *UI_CROSS = "\xC5"; // 197 - ┼
+
 const char *UI_HORIZONTAL_LINE = "\xC4"; // 196 - ─
-const char *UI_HORIZONTAL_LINE_TOP = "\xC1"; // 193 - ┴
-const char *UI_HORIZONTAL_LINE_BOTTOM = "\xC2"; // 194 - ┬";
+
+
 const char *UI_VERTICAL_LINE = "\xB3"; // 179 - │
-const char *UI_VERTICAL_LINE_LEFT = "\xC3"; // 195 - ├
-const char *UI_VERTICAL_LINE_RIGHT = "\xB4"; // 180 - ┤
+
+
 
 
     /// Borramos el espacio del recuadro
@@ -952,7 +952,7 @@ void dibujarDado(int nroDado, int valor){
     recuadro(X, Y, ANCHO, ALTO);
 
     /// Dibujar los puntos
-    const char *DOT = "\u2022";
+
 
     setBackgroundColor(RED);
     setColor(WHITE);
@@ -1047,4 +1047,4 @@ void dibujarDado(int nroDado, int valor){
  }
 
 
-#endif FUNCIONES_GENERALA_H_INCLUDED
+#endif
